@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../data/models/photo.dart';
 import '../../data/repositories/album_repository.dart';
 
@@ -24,10 +25,17 @@ class AlbumDetailScreenState extends State<AlbumDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Album Details", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.blueAccent,
-        elevation: 4,
-      ),
+  title: Text("Album Details", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+  backgroundColor: Colors.blueAccent,
+  elevation: 4,
+  leading: IconButton(
+    icon: Icon(Icons.arrow_back),
+    onPressed: () {
+      context.go('/'); // Navigates back to AlbumListScreen
+    },
+  ),
+),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
